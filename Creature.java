@@ -184,7 +184,8 @@ public abstract class Creature extends Actor
      */
     public final boolean removeTomato()
     {
-        if (carryingTomato) {
+        if (carryingTomato) 
+        {
             carryingTomato = false;
             return true;
         }
@@ -210,9 +211,11 @@ public abstract class Creature extends Actor
     protected final void dropTomato()
     {
         if (!carryingTomato)
+        {
             return;
-            
-        if (atShip()) {
+        }   
+        if (atShip()) 
+        {
             ship.storeTomato(this);
         }
         carryingTomato = false;
@@ -233,11 +236,17 @@ public abstract class Creature extends Actor
     public boolean atWorldEdge()
     {
         if (getX() < 3 || getX() > getWorld().getWidth() - 3)
+        {   
             return true;
+        }
         if (getY() < 3 || getY() > getWorld().getHeight() - 3)
+        {
             return true;
+        }
         else
+        {    
             return false;
+        }
     }
 
     
@@ -257,7 +266,8 @@ public abstract class Creature extends Actor
      */
     public void spit(String color)
     {
-        if (timeToSpit == 0) {
+        if (timeToSpit == 0) 
+        {
             Paint paint = new Paint(color);
             getWorld().addObject(paint, getX(), getY());
             timeToSpit = TIME_TO_SPIT + Greenfoot.getRandomNumber(10);
@@ -272,9 +282,13 @@ public abstract class Creature extends Actor
     public void setMemory(int val)
     {
         if (val < 0 || val > 255)
+        {    
             throw new IllegalArgumentException("memory value must be in range [0..255]");
+        }
         else 
+        {    
             memory = val;
+        }
     }
     
     
@@ -294,9 +308,13 @@ public abstract class Creature extends Actor
     public void setFlag(int flagNo, boolean val)
     {
         if (flagNo < 1 || flagNo > 2)
+        {    
             throw new IllegalArgumentException("flag number must be either 1 or 2");
+        }
         else 
+        {    
             flags[flagNo-1] = val;
+        }
     }
     
     
@@ -306,9 +324,13 @@ public abstract class Creature extends Actor
     public boolean getFlag(int flagNo)
     {
         if (flagNo < 1 || flagNo > 2)
+        {    
             throw new IllegalArgumentException("flag number must be either 1 or 2");
+        }
         else 
+        {    
             return flags[flagNo-1];
+        }
     }
     
     /**
